@@ -1,0 +1,1261 @@
+:root {
+
+    --green: #55f52f;
+
+    --green-light: #b9ffa6;
+
+    --green-pale: #e2ffd9;
+
+    --paper: #f7f8f0;
+
+    --card: #fffefa;
+
+    --ink: #171c18;
+
+    --muted: #69716c;
+
+    --line: #cbd0cb;
+
+}
+
+
+
+* {
+
+    box-sizing: border-box;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+
+html {
+
+    min-height: 100%;
+
+}
+
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--paper);
+
+    color: var(--ink);
+
+    font-family: "DM Mono", monospace;
+
+}
+
+
+
+.page {
+
+    position: relative;
+
+    isolation: isolate;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 100vh;
+
+    padding: 70px 24px 38px;
+
+    overflow: hidden;
+
+}
+
+
+
+/* Soft background texture */
+
+
+
+.page::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    opacity: 0.26;
+
+    background-image: radial-gradient(#b9ffa6 1px, transparent 1px);
+
+    background-size: 28px 28px;
+
+    mask-image: linear-gradient(
+
+        to bottom,
+
+        transparent 0%,
+
+        black 15%,
+
+        transparent 42%,
+
+        transparent 60%,
+
+        black 85%,
+
+        transparent 100%
+
+    );
+
+}
+
+
+
+/* Pixel corner patterns */
+
+
+
+.corner-grid {
+
+    position: absolute;
+
+    z-index: 0;
+
+    width: 100px;
+
+    height: 100px;
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    background-image:
+
+        linear-gradient(#d5f8ca 0 0),
+
+        linear-gradient(#d5f8ca 0 0),
+
+        linear-gradient(#d5f8ca 0 0),
+
+        linear-gradient(#d5f8ca 0 0),
+
+        linear-gradient(#d5f8ca 0 0);
+
+    background-repeat: no-repeat;
+
+    background-size:
+
+        25px 25px,
+
+        25px 25px,
+
+        25px 25px,
+
+        25px 25px,
+
+        25px 25px;
+
+}
+
+
+
+.grid-left {
+
+    top: 0;
+
+    left: 0;
+
+    background-position:
+
+        0 0,
+
+        25px 0,
+
+        0 25px,
+
+        50px 25px,
+
+        0 50px;
+
+}
+
+
+
+.grid-right {
+
+    top: 0;
+
+    right: 0;
+
+    transform: scaleX(-1);
+
+    background-position:
+
+        0 0,
+
+        25px 0,
+
+        0 25px,
+
+        50px 25px,
+
+        0 50px;
+
+}
+
+
+
+/* Main content */
+
+
+
+.hero {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 850px;
+
+    animation: enter-page 700ms ease-out both;
+
+}
+
+
+
+.brand {
+
+    margin-bottom: 35px;
+
+    text-align: center;
+
+}
+
+
+
+.brand-name {
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 auto 22px;
+
+    color: var(--green);
+
+    font-family: "Press Start 2P", monospace;
+
+    font-size: clamp(32px, 5.8vw, 58px);
+
+    line-height: 1.6;
+
+    letter-spacing: -3px;
+
+    -webkit-text-stroke: 1px var(--ink);
+
+    text-shadow: 4px 4px 0 var(--ink);
+
+}
+
+
+
+.brand-tag {
+
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    border: 2px solid var(--ink);
+
+    background: var(--card);
+
+    box-shadow: 4px 4px 0 var(--green);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.tagline {
+
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+
+.tagline span {
+
+    position: relative;
+
+    color: var(--ink);
+
+    font-weight: 500;
+
+}
+
+
+
+.tagline span::after {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: -3px;
+
+    left: 0;
+
+    height: 3px;
+
+    background: var(--green);
+
+    content: "";
+
+}
+
+
+
+/* URL form card */
+
+
+
+.shortener-card {
+
+    padding: 32px;
+
+    border: 2px solid var(--ink);
+
+    border-radius: 12px;
+
+    background: var(--card);
+
+    box-shadow:
+
+        7px 7px 0 var(--green-pale),
+
+        10px 10px 0 rgb(23 28 24 / 5%);
+
+}
+
+
+
+#urlForm {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 14px;
+    width: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.input-wrap {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    min-height: 62px;
+    padding: 0 15px;
+    border: 2px solid var(--line);
+    border-radius: 9px;
+    background: #fff;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.input-wrap:focus-within {
+    border-color: var(--ink);
+    box-shadow: 3px 3px 0 var(--green-pale);
+}
+
+.input-wrap svg {
+    flex: 0 0 25px;
+    width: 25px;
+    height: 25px;
+}
+
+#originalUrl {
+    display: block;
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+    padding: 18px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: 14px;
+}
+
+#originalUrl::placeholder {
+    color: #7d847f;
+    opacity: 1;
+}
+
+#shortenButton {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-width: 205px;
+    min-height: 62px;
+    padding: 0 22px;
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    background: var(--green);
+    color: var(--ink);
+    font-family: "Press Start 2P", monospace;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.5;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+#shortenButton svg {
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    transition: transform 180ms ease;
+}
+
+#shortenButton:hover {
+    background: var(--green-light);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--ink);
+}
+
+#shortenButton:hover svg {
+    transform: translateX(3px);
+}
+
+#shortenButton:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--ink);
+}
+
+#shortenButton:disabled {
+    opacity: 0.7;
+    cursor: wait;
+    transform: none;
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* Generated URL result */
+
+
+
+#result {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 13px;
+
+    margin-top: 22px;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+
+#result:empty {
+
+    display: none;
+
+}
+
+
+
+#result p {
+
+    margin: 0;
+
+    color: var(--ink);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+
+#result a {
+
+    display: block;
+
+    max-width: 100%;
+
+    color: #267b1c;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+
+#result button {
+
+    align-self: flex-start;
+
+    width: fit-content;
+
+    min-width: 115px;
+
+    margin: 0;
+
+    padding: 11px 18px;
+
+    border: 2px solid var(--ink);
+
+    border-radius: 8px;
+
+    background: var(--green);
+
+    color: var(--ink);
+
+    font: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 3px 0 var(--ink);
+
+    transition: transform 150ms ease,
+
+                box-shadow 150ms ease;
+
+}
+
+
+
+#result button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 0 var(--ink);
+
+}
+
+
+
+/* Footer */
+
+
+
+.page-footer {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px 25px;
+
+    margin-top: 34px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+.page-footer span:nth-child(2) {
+
+    color: #278b1c;
+
+}
+
+
+
+/* SVG doodles */
+
+
+
+.doodle {
+
+    position: absolute;
+
+    z-index: 1;
+
+    display: block;
+
+    pointer-events: none;
+
+    user-select: none;
+
+}
+
+
+
+.chain {
+
+    top: 40%;
+
+    left: 7%;
+
+    width: 78px;
+
+    height: 78px;
+
+    animation: float-chain 5.5s ease-in-out infinite;
+
+}
+
+
+
+.plane {
+
+    bottom: 18%;
+
+    left: 17%;
+
+    width: 76px;
+
+    height: 76px;
+
+    animation: float-plane 6s ease-in-out infinite;
+
+}
+
+
+
+.sparkle {
+
+    width: 42px;
+
+    height: 42px;
+
+}
+
+
+
+.sparkle-one {
+
+    top: 15%;
+
+    right: 29%;
+
+    animation: twinkle 4s ease-in-out infinite;
+
+}
+
+
+
+.sparkle-two {
+
+    bottom: 24%;
+
+    left: 27%;
+
+    width: 30px;
+
+    height: 30px;
+
+    animation: twinkle 5s ease-in-out infinite reverse;
+
+}
+
+
+
+.cursor {
+
+    right: 9%;
+
+    bottom: 23%;
+
+    width: 65px;
+
+    height: 65px;
+
+    animation: float-cursor 5s ease-in-out infinite;
+
+}
+
+
+
+.globe {
+
+    bottom: -48px;
+
+    left: -45px;
+
+    width: 185px;
+
+    height: 185px;
+
+    animation: float-chain 7s ease-in-out infinite;
+
+}
+
+
+
+.browser-doodle {
+
+    top: 19%;
+
+    right: 8%;
+
+    width: 115px;
+
+    height: 100px;
+
+    animation: float-cursor 6s ease-in-out infinite;
+
+}
+
+
+
+.mini-spark {
+
+    width: 24px;
+
+    height: 24px;
+
+}
+
+
+
+.mini-spark-left {
+
+    top: 35%;
+
+    left: 24%;
+
+    animation: twinkle 4.5s ease-in-out infinite;
+
+}
+
+
+
+.mini-spark-right {
+
+    right: 25%;
+
+    bottom: 17%;
+
+    animation: twinkle 5s ease-in-out infinite reverse;
+
+}
+
+
+
+/* Dashed travel paths */
+
+
+
+.path-drawing {
+
+    position: absolute;
+
+    z-index: 0;
+
+    width: 150px;
+
+    height: 230px;
+
+    pointer-events: none;
+
+    overflow: visible;
+
+}
+
+
+
+.path-left {
+
+    top: 22%;
+
+    left: 13%;
+
+}
+
+
+
+.path-right {
+
+    right: 12%;
+
+    bottom: 12%;
+
+}
+
+
+
+/* Handwritten notes */
+
+
+
+.side-note {
+
+    position: absolute;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: fit-content;
+
+    padding: 5px 12px;
+
+    background: var(--green-pale);
+
+    color: var(--ink);
+
+    font-family: "Patrick Hand", cursive;
+
+    font-size: 21px;
+
+    line-height: 1.1;
+
+    pointer-events: none;
+
+}
+
+
+
+.note-left {
+
+    top: 27%;
+
+    left: 3%;
+
+    transform: rotate(-7deg);
+
+}
+
+
+
+.note-share {
+
+    bottom: 28%;
+
+    left: 5%;
+
+    transform: rotate(-8deg);
+
+}
+
+
+
+.note-right-top {
+
+    top: 8%;
+
+    right: 8%;
+
+    transform: rotate(5deg);
+
+}
+
+
+
+.note-right-bottom {
+
+    right: 3%;
+
+    bottom: 36%;
+
+    transform: rotate(-5deg);
+
+}
+
+
+
+/* Entrance animation */
+
+
+
+@keyframes enter-page {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(14px);
+
+    }
+
+
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes float-chain {
+
+    0%, 100% {
+
+        transform: translateY(0) rotate(-4deg);
+
+    }
+
+
+
+    50% {
+
+        transform: translateY(-9px) rotate(2deg);
+
+    }
+
+}
+
+
+
+@keyframes float-plane {
+
+    0%, 100% {
+
+        transform: translateY(0) rotate(-4deg);
+
+    }
+
+
+
+    50% {
+
+        transform: translateY(-10px) rotate(1deg);
+
+    }
+
+}
+
+
+
+@keyframes float-cursor {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+
+
+    50% {
+
+        transform: translateY(-8px);
+
+    }
+
+}
+
+
+
+@keyframes twinkle {
+
+    0%, 100% {
+
+        opacity: 0.85;
+
+        transform: scale(1) rotate(0deg);
+
+    }
+
+
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.09) rotate(8deg);
+
+    }
+
+}
+
+
+
+/* Tablet layout */
+
+
+
+@media (max-width: 1000px) {
+
+    .path-left {
+
+        left: 2%;
+
+    }
+
+
+
+    .path-right {
+
+        right: 2%;
+
+    }
+
+
+
+    .note-left {
+
+        left: 2%;
+
+    }
+
+
+
+    .note-right-top {
+
+        right: 3%;
+
+    }
+
+
+
+    .note-right-bottom {
+
+        right: 2%;
+
+    }
+
+
+
+    .browser-doodle {
+
+        right: 3%;
+
+    }
+
+
+
+    .chain {
+
+        left: 2%;
+
+    }
+
+
+
+    .cursor {
+
+        right: 3%;
+
+    }
+
+}
+
+
+
+/* Mobile layout */
+
+
+
+@media (max-width: 650px) {
+
+    .page {
+
+        padding: 50px 20px 28px;
+
+    }
+
+
+
+    .hero {
+
+        max-width: 500px;
+
+    }
+
+
+
+    .brand {
+
+        margin-bottom: 28px;
+
+    }
+
+
+
+    .brand-name {
+
+        font-size: clamp(27px, 8vw, 42px);
+
+        letter-spacing: -3px;
+
+        text-shadow: 3px 3px 0 var(--ink);
+
+    }
+
+
+
+    .brand-tag {
+
+        padding: 8px 11px;
+
+        font-size: 10px;
+
+    }
+
+
+
+    .tagline {
+
+        font-size: 12px;
+
+    }
+
+
+
+    .shortener-card {
+
+        padding: 19px;
+
+    }
+
+
+
+    input {
+
+        font-size: 12px;
+
+    }
+
+
+
+    .page-footer {
+
+        gap: 10px 14px;
+
+        font-size: 9px;
+
+    }
+
+
+
+    .chain {
+
+        top: 8%;
+
+        left: 3%;
+
+        width: 42px;
+
+        height: 42px;
+
+    }
+
+
+
+    .sparkle-one {
+
+        top: 7%;
+
+        right: 5%;
+
+        width: 28px;
+
+        height: 28px;
+
+    }
+
+
+
+    .plane,
+
+    .cursor,
+
+    .globe,
+
+    .browser-doodle,
+
+    .path-drawing,
+
+    .side-note,
+
+    .sparkle-two,
+
+    .mini-spark {
+
+        display: none;
+
+    }
+
+}
+
+
+
+/* Accessibility: respect reduced motion */
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+
+    *::before,
+
+    *::after {
+
+        animation: none !important;
+
+        transition: none !important;
+
+        scroll-behavior: auto !important;
+
+    }
+
+}

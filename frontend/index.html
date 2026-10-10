@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8f0">
+    <meta name="description" content="LynkBit turns long URLs into short, shareable links.">
+
+    <title>LynkBit — Small Links, Big Possibilities</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500;700&family=Patrick+Hand&family=Press+Start+2P&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./favicon.ico" sizes="any">
+</head>
+<body>
+
+<main class="page">
+
+    <!-- Corner patterns -->
+    <div class="corner-grid grid-left" aria-hidden="true"></div>
+    <div class="corner-grid grid-right" aria-hidden="true"></div>
+
+    <!-- Chain link -->
+    <svg class="doodle chain" viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#171c18" stroke-width="4"
+           stroke-linecap="round" stroke-linejoin="round">
+            <path d="M39 57 28 68a17 17 0 0 1-24-24l18-18a17 17 0 0 1 24 0"/>
+            <path d="M61 43 72 32a17 17 0 0 1 24 24L78 74a17 17 0 0 1-24 0"/>
+            <path d="m34 66 32-32"/>
+        </g>
+        <path d="M16 44 29 31M69 69 81 57"
+              fill="none" stroke="#55f52f" stroke-width="5"
+              stroke-linecap="round"/>
+    </svg>
+
+    <!-- Paper plane -->
+    <svg class="doodle plane" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M6 42 93 7 63 93 46 58 6 42Z"
+              fill="#55f52f" stroke="#171c18" stroke-width="4"
+              stroke-linejoin="round"/>
+        <path d="M46 58 93 7 36 69"
+              fill="none" stroke="#171c18" stroke-width="3"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Large sparkle -->
+    <svg class="doodle sparkle sparkle-one" viewBox="0 0 100 100"
+         aria-hidden="true">
+        <path d="M50 5 61 37 94 50 61 63 50 95 39 63 6 50 39 37Z"
+              fill="#55f52f" stroke="#171c18" stroke-width="3"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Small sparkle -->
+    <svg class="doodle sparkle sparkle-two" viewBox="0 0 100 100"
+         aria-hidden="true">
+        <path d="M50 5 61 37 94 50 61 63 50 95 39 63 6 50 39 37Z"
+              fill="#fffefa" stroke="#171c18" stroke-width="4"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Cursor -->
+    <svg class="doodle cursor" viewBox="0 0 100 100" aria-hidden="true">
+        <path d="M20 8 79 62 54 65 66 88 53 95 41 70 25 88Z"
+              fill="#55f52f" stroke="#171c18" stroke-width="4"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Globe -->
+    <svg class="doodle globe" viewBox="0 0 180 180" aria-hidden="true">
+        <circle cx="90" cy="90" r="78"
+                fill="#fffefa" stroke="#171c18" stroke-width="4"/>
+        <path d="M43 36 62 24 76 37 68 52 53 57 48 75 33 79
+                 21 65 M98 15 104 36 93 48 105 63 128 62
+                 142 79 159 75 M32 106 49 101 62 119
+                 58 139 75 160 M99 91 115 83 133 94
+                 137 117 122 135 125 151"
+              fill="none" stroke="#171c18" stroke-width="3"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M48 37 62 27 74 38 68 52 53 57 48 75 33 79 22 65Z
+                 M98 15 104 36 93 48 105 63 128 62 142 79
+                 159 75 150 49 125 25Z
+                 M32 106 49 101 62 119 58 139 75 160
+                 59 151 45 134Z"
+              fill="#b9ffa6"/>
+    </svg>
+
+    <!-- Browser window -->
+    <svg class="doodle browser-doodle" viewBox="0 0 150 120"
+         aria-hidden="true">
+        <rect x="8" y="10" width="130" height="94" rx="12"
+              fill="#fffefa" stroke="#171c18" stroke-width="4"/>
+        <path d="M9 36H137" stroke="#171c18" stroke-width="4"/>
+        <circle cx="23" cy="23" r="3" fill="#55f52f"/>
+        <circle cx="35" cy="23" r="3" fill="#171c18"/>
+        <circle cx="47" cy="23" r="3" fill="#171c18"/>
+        <path d="M34 56h40M34 68h28"
+              stroke="#b9ffa6" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Small decorative sparkles -->
+    <svg class="doodle mini-spark mini-spark-left"
+         viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 2 24 15 38 20 24 24 20 38 15 24 2 20 15 15Z"
+              fill="#55f52f" stroke="#171c18" stroke-width="1.8"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <svg class="doodle mini-spark mini-spark-right"
+         viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 2 24 15 38 20 24 24 20 38 15 24 2 20 15 15Z"
+              fill="#fffefa" stroke="#171c18" stroke-width="1.8"
+              stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Dashed paths -->
+    <svg class="path-drawing path-left" viewBox="0 0 220 300"
+         aria-hidden="true">
+        <path d="M15 8C120 35 180 70 115 130S45 205 135 240"
+              fill="none" stroke="#171c18" stroke-width="2.5"
+              stroke-dasharray="8 11" stroke-linecap="round"/>
+        <path d="m122 225 15 15-18 2"
+              fill="none" stroke="#171c18" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <svg class="path-drawing path-right" viewBox="0 0 200 300"
+         aria-hidden="true">
+        <path d="M170 5C45 45 55 90 105 125S160 205 65 265"
+              fill="none" stroke="#171c18" stroke-width="2.5"
+              stroke-dasharray="8 11" stroke-linecap="round"/>
+        <path d="m81 248-16 17 19 1"
+              fill="none" stroke="#171c18" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Handwritten notes -->
+    <div class="side-note note-left" aria-hidden="true">
+        <span>Short</span>
+        <span>Links</span>
+    </div>
+
+    <div class="side-note note-share" aria-hidden="true">
+        <span>Share</span>
+        <span>Faster!</span>
+    </div>
+
+    <div class="side-note note-right-top" aria-hidden="true">
+        <span>Simple</span>
+        <span>&amp; Fast</span>
+    </div>
+
+    <div class="side-note note-right-bottom" aria-hidden="true">
+        <span>Small Links</span>
+        <span>Big Possibilities</span>
+    </div>
+
+    <!-- Main content -->
+    <section class="hero">
+
+        <header class="brand">
+            <div class="brand-name">LynkBit</div>
+
+            <span class="brand-tag">URL SHORTENER</span>
+
+            <p class="tagline">
+                Turn long links into <span>short links.</span>
+            </p>
+        </header>
+
+        <section class="shortener-card">
+            <form id="urlForm">
+
+                <label class="sr-only" for="originalUrl">
+                    Enter the URL you want to shorten
+                </label>
+
+                <div class="input-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 13a5 5 0 0 0 7.07 0l3-3A5 5 0 0 0 13 2.93l-1.72 1.72"
+                              fill="none" stroke="currentColor"
+                              stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M14 11a5 5 0 0 0-7.07 0l-3 3A5 5 0 0 0 11 21.07l1.72-1.72"
+                              fill="none" stroke="currentColor"
+                              stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+
+                    <input
+                        type="url"
+                        id="originalUrl"
+                        placeholder="Paste your long URL here..."
+                        autocomplete="url"
+                        required
+                    >
+                </div>
+
+                <button id="shortenButton" type="submit">
+                    <span>Shorten URL</span>
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14m-6-6 6 6-6 6"
+                              fill="none" stroke="currentColor"
+                              stroke-width="2.5" stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </button>
+
+            </form>
+
+            <div id="result" aria-live="polite"></div>
+        </section>
+
+        <footer class="page-footer">
+            <span>SHORT LINKS.</span>
+            <span>SHARE FASTER.</span>
+            <span>KEEP IT SIMPLE.</span>
+        </footer>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
