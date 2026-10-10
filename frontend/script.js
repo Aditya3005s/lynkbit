@@ -4,7 +4,7 @@ const originalUrlInput = document.getElementById("originalUrl");
 const result = document.getElementById("result");
 const shortenButton = form.querySelector('button[type="submit"]');
 
-const API_URL = "https://lynkbit-api.onrender.com";
+const API_URL = "https://lynkbit-api.onrender.com/api/urls";
 
 form.addEventListener("submit", async function (event) {
     event.preventDefault();
